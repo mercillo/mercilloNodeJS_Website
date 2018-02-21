@@ -1,0 +1,86 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body>
+
+    <header>
+        <% include ../partials/header %>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+          
+            ga('create', 'UA-90533692-1', 'auto');
+            ga('send', 'pageview', '/portfolio');
+          
+        </script>     
+         <style>
+                .responsive-video {
+                    position: relative;
+                    padding-bottom: 56.25%;
+                    padding-top: 60px; overflow: hidden;
+                }
+        
+        
+                .responsive-video iframe,
+                .responsive-video object,
+                .responsive-video embed {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }            
+                </style>          
+    </header>
+   
+
+    <div class="mixingContainer" style="padding-top:50px; padding-bottom:50px;">
+        <div class="container">
+            <div class="row" style="padding-bottom:30px">
+            <h4 class="text-center" style="padding-bottom:30px" >Mix Portfolio</h4>
+                <div class="col-xs-12 col-sm-6">
+                    
+                    <ul> I've done mixes for:</p>
+                        <li>CADC</li>
+                        <li>Hall of Fame</li>
+                        <li>Kings and Queens</li>
+                        <li>TM Juniors</li>
+                        <li>Soulstice</li>
+                        <li>Magic shows</li>
+                        <li>And many more!</li>
+                    </ul>
+
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                        <div class="responsive-video"><iframe width="400" height="315" src="https://www.youtube.com/embed/videoseries?list=PLc3LS0y4t_nICr5A30j-FvlO8BoZkw6kt" frameborder="0" allowfullscreen></iframe></div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="djContainer" style="background-color:black; color:white; padding-top:50px;">
+        <div class="container">
+            <div class="row" style="padding-bottom:30px">
+                <div class="text-center">
+                    <h4 class="text-center">Web Portfolio</h4>
+                        <p>Coming Soon</p>
+                        <a href="/irvine"> <button type="button" class="btn btn-primary"> Check out my Irvine Grocery App</button></a>
+                </div>
+            </div>    
+            
+        </div>
+    </div> 
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+    
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+    <title>DC DRINKING!!</title>
+    
+
+</head>
+<body style="background-color:black;color:white">
+    <div class="container">
+        <div class="col-xs-12 text-center">
+            <img class="img-responsive" style="width:300px; height:300px;margin:0 auto;display:none" id="ruleImage" src="" >
+            <h3><div id="drinkGenerator">Welcome to DC Snow trip! Click Drink to start.</div></h3>
+        </div>
+    </div>
+    
+<div class="container">
+    <div class="col-xs-12">
+        <div class="drinkButton">
+            <img onclick="drink()" style="margin:0 auto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo6YBvd61XeMwJV-EJiO7uJGvucNPq4FvBiv4S2rKymHPY9epw" class="img-responsive">
+        </div>
+    </div>
+</div>
+
+<script>
+    var drinkArr=[
+        "Gryffindor's Drink",
+        "Hufflepuff's Drink",
+        "RavenClaw's Drink",
+        "Slytherin's Drink",
+        "ChAOS Drinks",
+        "Current Team Drinks",
+        "Hogwarts FlipCup. Choose 2 people to represent your house. 3rd and 4th place takes house shots.",
+        "Hogwarts BP. Choose 1 person to represent your house. First persons house to make it in doesn't have to drink. Everyone else drinks",
+        "If you have a sweater on.. Drink",
+        "If you are sitting down. Drink",
+        "If anyone is sleeping. Drink",
+        "Everyone Drinks",
+        "If you're not drunk. Drink",
+        "Hogwarts Buzz game, Count in a circle, every multiple of 7; say buzz. losing house drinks",
+        "Last one to touch a red cup drinks.",
+        "If you're going snowboarding/skiing/tubing.. Drink",
+        "If you ate a quesadilla. Drink",
+        "If your buddy is here. Drink",
+        "First one to talk Drinks.",
+        "5 Drive. Loser Drinks",
+        "Curent team vs chaos. Make a 6 person pyramid.",
+        "If you're in the kitchen. Drink",
+        "Find a pine cone. First 6 doesn't have to drink",
+        "9 Rhyme. Loser Drinks",
+        "Choose a chAOS as a mate.",
+        "Choose current team as a mate",
+        "THE FLOOR IS LAVA! If you're still touching the floor after 3 seconds. Drink",
+        "Mannequin Challenge. First person to move drinks.",
+        "Paper Challenge. 1 Representative from each house. Failure = Whole house Drinks",
+        "iphone gang? Drink",
+        "android squad? Drink",
+        "Top 3! or Drink.",
+        "You are now the new jack off master. ",
+        "Hogwarts Plank Contest. 1 representative from each house. ",
+        "Hogwarts Staring Content. 1 representative frm each house. Then one final stare contest for the true winner.",
+        "Stop drop and Roll! If you're still up drink",
+        "JV Drink",
+        "Varsity Drinks",
+        "Pparty Drinks",
+        "Current/Past Cabbie Drinks",
+        "newbies Drink",
+        "Returners Drink",
+        "Chaos+others Drink",
+        "if you DIDNT drive. Drink"];
+
+
+    var drinkObj = [
+        {"name":"Gryffindor's Drink",'img':'https://musingsfromnevillesnavel.files.wordpress.com/2011/08/gryffindorlogo1.jpg','sound':'default'},
+        {"name":"Hufflepuff's Drink",'img':'https://www.unilad.co.uk/wp-content/uploads/2015/09/UNILAD-hpuff3.jpg','sound':'default'},
+        {"name":"RavenClaw's Drink",'img':'https://musingsfromnevillesnavel.files.wordpress.com/2011/08/ravenclaw-shield1.jpg','sound':'default'},
+        {"name":"Slytherin's Drink",'img':'https://cdn.shopify.com/s/files/1/2393/5817/products/Harry-Potter-Slytherin-Crest-Kids-T-Shirt-Logo-Web_1400x.jpg?v=1511172841','sound':'default'},
+        {"name":"ChAOS Drinks",'img':'default','sound':'default'},
+        {"name":"Current Team Drinks",'img':'default','sound':'images/OS-Lil-Jon-Bitch.wav'},
+        {"name":"Hogwarts FlipCup. Choose 2 people to represent your house. 3rd and 4th place takes house shots.",'img':'http://markinternational.info/data/out/738/225503319-hogwarts-crest-wallpaper.jpg','sound':'images/Cymatics Phrases - Go Ham With It 1.wav'},
+        {"name":"Hogwarts BP. Choose 1 person to represent your house. First persons house to make it in doesn't have to drink. Everyone else drinks",'img':'http://markinternational.info/data/out/738/225503319-hogwarts-crest-wallpaper.jpg','sound':'images/Cymatics Words - Curry 1.wav'},
+        {"name":"If you have a sweater on.. Drink",'img':'default','sound':'default'},
+        {"name":"If you are sitting down. Drink",'img':'default','sound':'default'},
+        {"name":"If anyone is sleeping. Drink",'img':'default','sound':'images/Cymatics - Nothing Personal - 150 BPM.wav'},
+        {"name":"Everyone Drinks",'img':'default','sound':'images/Cymatics Phrases - 3 2 1 Leh Go 2.wav'},
+        {"name":"If you're not drunk. Drink",'img':'default','sound':'images/Cymatics Phrases - Go Ham With It 1.wav'},
+        {"name":"Hogwarts Buzz game, Count in a circle, every multiple of 7; say buzz. losing house drinks",'img':'http://markinternational.info/data/out/738/225503319-hogwarts-crest-wallpaper.jpg','sound':'default'},
+        {"name":"Last one to touch a red cup drinks.",'img':'default','sound':'default'},
+        {"name":"If you're going snowboarding/skiing/tubing.. Drink",'img':'default','sound':'default'},
+        {"name":"If you ate a quesadilla. Drink",'img':'default','sound':'default'},
+        {"name":"If your buddy is here. Drink",'img':'default','sound':'images/Cymatics - Nothing Personal - 150 BPM.wav'},
+        {"name":"First one to talk Drinks.",'img':'default','sound':'default'},
+        {"name":"5 Drive. Loser Drinks",'img':'default','sound':'default'},
+        {"name":"Curent team vs chaos. Make a 6 person pyramid.",'img':'default','sound':'images/Cymatics Phrases - 3 2 1 Leh Go 2.wav'},
+        {"name":"If you're in the kitchen. Drink",'img':'default','sound':'default'},
+        {"name":"Find a pine cone. First 6 doesn't have to drink",'img':'default','sound':'default'},
+        {"name":"9 Rhyme. Loser Drinks",'img':'default','sound':'default'},
+        {"name":"Choose a chAOS as a mate.",'img':'default','sound':'images/Cymatics Phrases - 3 2 1 Leh Go 2.wav'},
+        {"name":"Choose current team as a mate",'img':'default','sound':'images/Cymatics Phrases - 3 2 1 Leh Go 2.wav'},
+        {"name":"THE FLOOR IS LAVA! If you're still touching the floor after 3 seconds. Drink",'img':'default','sound':'images/Cymatics Phrases - 3 2 1 Leh Go 2.wav'},
+        {"name":"Mannequin Challenge. First person to move drinks.",'img':'default','sound':'images/Cymatics Phrases - 3 2 1 Leh Go 2.wav'},
+        {"name":"Paper Challenge. 1 Representative from each house. Failure = Whole house Drinks",'img':'default','sound':'images/Cymatics Phrases - 3 2 1 Leh Go 2.wav'},
+        {"name":"iphone gang? Drink",'img':'default','sound':'default'},
+        {"name":"android squad? Drink",'img':'default','sound':'default'},
+        {"name":"Top 3! or Drink.",'img':'default','sound':'images/Cymatics Phrases - Go Ham With It 1.wav'},
+        {"name":"You are now the new jack off master. ",'img':'default','sound':'default'},
+        {"name":"Hogwarts Plank Contest. 1 representative from each house. ",'img':'default','http://markinternational.info/data/out/738/225503319-hogwarts-crest-wallpaper.jpg':'images/Cymatics Phrases - Go Ham With It 1.wav'},
+        {"name":"Hogwarts Staring Content. 1 representative frm each house. Then one final stare contest for the true winner.",'img':'http://markinternational.info/data/out/738/225503319-hogwarts-crest-wallpaper.jpg','sound':'images/Cymatics Phrases - Go Ham With It 1.wav'},
+        {"name":"Stop drop and Roll! If you're still up drink",'img':'default','sound':'images/Cymatics Phrases - 3 2 1 Leh Go 2.wav'},
+        {"name":"JV Drink",'img':'default','sound':'default'},
+        {"name":"Varsity Drinks",'img':'default','sound':'images/Cymatics - Nothing Personal - 150 BPM.wav'},
+        {"name":"Pparty Drinks",'img':'default','sound':'images/Cymatics - Nothing Personal - 150 BPM.wav'},
+        {"name":"Current/Past Cabbie Drinks",'img':'default','sound':'images/Cymatics - Nothing Personal - 150 BPM.wav'},
+        {"name":"newbies Drink",'img':'default','sound':'images/Cymatics - Nothing Personal - 150 BPM.wav'},
+        {"name":"Returners Drink",'img':'default','sound':'images/Cymatics - Nothing Personal - 150 BPM.wav'},
+        {"name":"Chaos+others Drink",'img':'default','sound':'images/Cymatics - Nothing Personal - 150 BPM.wav'},
+        {"name":"if you DIDNT drive. Drink",'img':'default','sound':'default'}
+]
+       var randomDefaultImages =[
+           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEK1vyniJk4DpjVEq-_OpiMKn_-U1wV2iA3yGNA1qvP70izgME2Q",
+            "https://i.imgur.com/kcxXKRo.png?1","https://www.50-best.com/images/kevin_hart_memes/she_wasnt_ready.jpg",
+            "http://s2.quickmeme.com/img/c5/c50390c42a9e23922625c1f3c16b7f09ba8bc1481346045634d59fbd02a9831f.jpg",
+            "http://i0.kym-cdn.com/photos/images/facebook/000/993/875/084.png","http://80skiparty.com/wp-content/uploads/2018/01/coolest-spongebob-water-meme-the-spongebob-squarepants-movie-sponge-out-of-water-spongebob-water-meme.png"]
+        defaultSound = new Audio('images/Air_Horn.mp3');
+     
+    function generateDrinks(){
+        randomDrink = Math.floor(Math.random()*drinkArr.length);
+        drink = drinkArr[randomDrink]
+        $('#drinkGenerator').text(drink);
+        audio.play();
+    }
+
+    function drink(){
+
+        randomDrink = Math.floor(Math.random()*drinkObj.length);
+        ruleName = drinkObj[randomDrink].name;
+        ruleImg = drinkObj[randomDrink].img;
+        ruleSound = drinkObj[randomDrink].sound;
+        updateScreen(ruleName,ruleImg,ruleSound);
+    }
+
+    function updateScreen(rName,rImg,rSound){
+        
+        $('#drinkGenerator').text(rName);
+        
+        if(rImg != 'default') {
+            
+            $("#ruleImage").attr("src",rImg);
+           
+        }else{
+            
+            randomImageNumber= Math.floor(Math.random()*randomDefaultImages.length);
+            randomImage = randomDefaultImages[randomImageNumber];
+            $("#ruleImage").attr("src",randomImage);
+            
+        }
+        if(rSound != 'default'){
+            audio = new Audio(rSound)
+            audio.play();
+            
+        }else{
+            
+            defaultSound.play();
+        }
+        $('#ruleImage').show();
+    }
+</script>
+
+</body>
+</html>

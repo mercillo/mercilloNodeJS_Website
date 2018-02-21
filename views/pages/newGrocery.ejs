@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body>
+
+    <header>
+        <% include ../partials/header %>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+          
+            ga('create', 'UA-90533692-1', 'auto');
+            ga('send', 'pageview', '/portfolio');
+          
+        </script>     
+         <style>
+                .responsive-video {
+                    position: relative;
+                    padding-bottom: 56.25%;
+                    padding-top: 60px; overflow: hidden;
+                }
+        
+        
+                .responsive-video iframe,
+                .responsive-video object,
+                .responsive-video embed {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }            
+                </style>          
+    </header>
+
+    <div class="container" style="padding-top:25px;">
+        <h3 class="text-center">Submit a Grocery Item</h3>
+        <form class="form-horizontal" action="/irvine" method="POST">
+            <div class="form-group">
+                <label class="col-sm-2" >Name</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" name="food[name]" placeholder="Name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2" >Category</label>
+                <div class="col-sm-10">
+                        <select class="form-control" type="text" name="food[category]" id="category">
+                                <option>Chicken</option>
+                                <option>Beef</option>
+                                <option>Turkey</option>
+                                <option>Alcohol</option>
+                                <option>Other</option>
+                              </select>
+                    
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2">Cost (per/lb)</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" name="food[cost]" placeholder="Cost (per/lb)">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2">Location</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" name="food[location]" placeholder="Location">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2">Notes</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text" name="food[notes]" placeholder="Notes">
+                    </div>
+            </div>        
+            <div class="form-group">
+                    <label class="col-sm-2">Subbmited By:</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" type="text" name="food[submitted]" placeholder="Leave Blank for N/A">
+                        </div>
+                </div>                  
+            <div class="col-xs-12 text-center" style="padding-bottom:50px;">
+                <button class="btn btn-success" type="submit">Submit</button>
+            </div>
+
+        </form>                                        
+    </div>
+
+    <footer>
+            <% include ../partials/footer %>
+        </footer>
+        
+    </body>
+    </html>

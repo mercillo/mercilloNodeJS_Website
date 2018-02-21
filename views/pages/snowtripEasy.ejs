@@ -1,0 +1,89 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+    <title>DC DRINKING!!</title>
+    
+
+</head>
+<body style="background-color:black;color:white">
+    <div class="container">
+        <div class="col-xs-12 text-center">
+            <img class="img-responsive" style="width:300px; height:300px;margin:0 auto;display:none" id="ruleImage" src="" >
+            <h3><div id="drinkGenerator">Welcome to DC Snow trip! Click Drink to start.</div></h3>
+        </div>
+    </div>
+    
+<div class="container">
+    <div class="col-xs-12">
+        <div class="drinkButton">
+            <img onclick="generateDrinks()" style="margin:0 auto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo6YBvd61XeMwJV-EJiO7uJGvucNPq4FvBiv4S2rKymHPY9epw" class="img-responsive">
+        </div>
+    </div>
+</div>
+
+<script>
+    var drinkArr=[
+        "Gryffindor's Drink",
+        "Hufflepuff's Drink",
+        "RavenClaw's Drink",
+        "Slytherin's Drink",
+        "ChAOS Drinks",
+        "Current Team Drinks",
+        "Hogwarts FlipCup. Choose 2 people to represent your house. 3rd and 4th place takes house shots.",
+        "Hogwarts BP. Choose 1 person to represent your house. First persons house to make it in doesn't have to drink. Everyone else drinks",
+        "If you have a sweater on.. Drink",
+        "If you are sitting down. Drink",
+        "If anyone is sleeping. Drink",
+        "Everyone Drinks",
+        "If you're not drunk. Drink",
+        "Hogwarts Buzz game, Count in a circle, every multiple of 7; say buzz. losing house drinks",
+        "Last one to touch a red cup drinks.",
+        "If you're going snowboarding/skiing/tubing.. Drink",
+        "If you ate a quesadilla. Drink",
+        "If your buddy is here. Drink",
+        "First one to talk Drinks.",
+        "5 Drive. Loser Drinks",
+        "Curent team vs chaos. Make a 6 person pyramid.",
+        "If you're in the kitchen. Drink",
+        "Find a pine cone. First 6 doesn't have to drink",
+        "9 Rhyme. Loser Drinks",
+        "Choose a chAOS as a mate.",
+        "Choose current team as a mate",
+        "THE FLOOR IS LAVA! If you're still touching the floor after 3 seconds. Drink",
+        "Mannequin Challenge. First person to move drinks.",
+        "Paper Challenge. 1 Representative from each house. Failure = Whole house Drinks",
+        "iphone gang? Drink",
+        "android squad? Drink",
+        "Top 3! or Drink.",
+        "You are now the new jack off master. ",
+        "Hogwarts Plank Contest. 1 representative from each house. ",
+        "Hogwarts Staring Content. 1 representative frm each house. Then one final stare contest for the true winner.",
+        "Stop drop and Roll! If you're still up drink",
+        "JV Drink",
+        "Varsity Drinks",
+        "Pparty Drinks",
+        "Current/Past Cabbie Drinks",
+        "newbies Drink",
+        "Returners Drink",
+        "Chaos+others Drink",
+        "if you DIDNT drive. Drink"];
+
+
+  
+       
+        audio = new Audio('images/OS-Lil-Jon-Bitch.wav');
+     
+    function generateDrinks(){
+        randomDrink = Math.floor(Math.random()*drinkArr.length);
+        drink = drinkArr[randomDrink]
+        $('#drinkGenerator').text(drink);
+        audio.play();
+    }
+
+</script>
+
+</body>
+</html>

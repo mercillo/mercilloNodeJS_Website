@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <div class="container" style="padding-top:25px;">
+        <h3 class="text-center">Submit a Song Request</h3>
+        <form class="form-horizontal" action="/requests" method="POST">
+            <div class="form-group">
+                <label class="col-sm-2" >Song</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" name="request[title]" placeholder="Song Title">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2" >Artist</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" name="request[artist]" placeholder="Artist">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2">Comments</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" name="request[comments]" placeholder="Leave any feedback or comments">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2">Name</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" name="request[name]" placeholder="Your Name/Or Anonymous">
+                </div>
+            </div>
+            <div class="col-xs-12 text-center">
+                <button class="btn btn-success" type="submit">Submit</button>
+            </div>
+
+        </form>                                        
+    </div>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+    
+</body>
+</html>

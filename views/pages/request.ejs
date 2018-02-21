@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <div class="container" style="padding-top:20px">
+        <div class="table-responsive">
+            <h3> Song Requests</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Song</th>
+                        <th>Artist</th>
+                        <th>Comments</th>
+                        <th>Requested By</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% requests.forEach(function(request){ %>
+                    <tr>
+                        <th> <%=request.title%> </th>
+                        <th> <%=request.artist%> </th>
+                        <th> <%=request.comments%> </th>
+                        <th> <%=request.name%> </th>
+                        <th> <%=request.created.toDateString()%> </th>
+                    <tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+
+       <a href="/requests/song"> <button type="button" class="btn btn-primary"> Request a Song</button></a>
+
+    </div>
+
+
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+    
+</body>
+</html>

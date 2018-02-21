@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 550px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+        
+    /* On small screens, set height to 'auto' for the grid */
+    @media screen and (max-width: 767px) {
+      .row.content {height: auto;} 
+    }
+
+    .borderframe{
+        width:100px;
+        height:100px;
+    }
+
+    .marginRank{
+        margin-top:-3%;
+        font-weight:600;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse visible-xs">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Dashboard</a></li>
+        <li><a href="#">competitive</a></li>
+        <li><a href="#">Heroes</a></li>
+        <li><a href="#">Tips</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav hidden-xs">
+       
+        Username: <input type="text" id="userName" value=""><br>
+        Platform: <input type="text" id="platform" value="psn"><br>
+        <button id="json">Submit</button>
+      
+        
+      
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="#section1">Dashboard</a></li>
+        <li><a href="#section2">Competitive</a></li>
+        <li><a href="#section3">Heroes</a></li>
+        <li><a href="#section3">Tips</a></li>
+      </ul><br>
+    </div>
+    <br>
+    
+    <div class="col-sm-9">
+      <div class="well">
+        <div class="row">
+            <div class="col-xs-4 text-center" id="dashboardUsername">
+            </div> 
+            <div class="col-xs-4 text-center">
+                    <div id="dashboardLevel"></div>
+                    <div id="dashboardRank"></div>
+                    <div id="dashboardCompRank"></div>
+            </div>
+            <span class="col-xs-4" id="dashboardLogo"></span>
+        </div>
+        <div class="row text-center">
+            <p>
+                <div class="col-xs-4 text-center">
+
+                </div>
+                
+            </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="well">
+            <h4>Wins</h4>
+            <div id="dashboardWins"></div> 
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="well">
+            <h4>Win Rate</h4>
+            <div id="dashboardWinRate"></div>  
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="well">
+            <h4>Sessions</h4>
+            <p></p> 
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="well">
+            <h4>Bounce</h4>
+            <p></p> 
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="well">
+            <h4>Top 3 Heroes</h4>
+            <div id="top3Heroes"></div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="well">
+            <p>Text</p> 
+            <p>Text</p> 
+            <p>Text</p> 
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="well">
+            <p>Text</p> 
+            <p>Text</p> 
+            <p>Text</p> 
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="well">
+            <p>Text</p> 
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="well">
+            <p>Text</p> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+
+    var playerData = "";
+    $('#json').click(function(){ 
+        
+         var username=$("#userName").val();
+         var platform = $("#platform").val();
+         console.log(username);
+         console.log(platform);
+         $.getJSON("https://owapi.net/api/v3/u/"+username+"/stats?platform="+platform,
+         function(data) {
+            console.log(data);
+            playerData = data;
+            playerDataParse(playerData,username);
+            heroData(username,platform)
+          });   
+    });
+
+
+    function playerDataParse(playerData,username){
+        console.log("This is the player data");
+        console.log(playerData);
+        var overAllStats = playerData["any"]["stats"]["competitive"]["overall_stats"];
+        console.log(overAllStats);
+        $("#dashboardUsername").html("<h1>"+username+"</h1>");
+
+        $("#dashboardLogo").html("<img class='borderframe' src="+overAllStats["rank_image"]+">");
+        $("#dashboardLevel").html("<p class='marginRank'> Level: "+overAllStats["level"]+"</p>");
+        $("#dashboardRank").html("<span>"+overAllStats["tier"].toUpperCase()+"</span>");
+        $("#dashboardCompRank").html("<p>"+overAllStats["comprank"]+"</p>");
+
+       $("#dashboardWins").html("<p> "+overAllStats["wins"]+"</p>");
+       $("#dashboardWinRate").html("<p> "+overAllStats["win_rate"]+"</p>");
+
+    }
+
+    function heroData(username,platform){
+         $.getJSON("https://owapi.net/api/v3/u/"+username+"/heroes?platform="+platform,
+         function(data) {
+            heroDataParse(data)
+           
+          }); 
+    }
+    function heroDataParse(heroData){
+        playtimeHeroes=heroData["any"]["heroes"]["playtime"]["competitive"];
+                let keys = Object.keys(playtimeHeroes);
+
+                // Then sort by using the keys to lookup the values in the original object:
+                mostPlayedHeroes = keys.sort(function(a, b) { return playtimeHeroes[b] - playtimeHeroes[a] });
+
+                console.log(mostPlayedHeroes);
+                for(i=0;i<3;i++){
+                    $("#top3Heroes").append("<p> "+mostPlayedHeroes[i]+"</p>");
+                }
+    }
+
+</script>
+
+</body>
+</html>
