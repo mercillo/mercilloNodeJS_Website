@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require("mongoose");
+
 var methodOverride = require("method-override");
 var expressSanitizer = require("express-sanitizer");
 var app = express();
@@ -80,9 +81,6 @@ app.get("/cadcsnowtrip",function(req,res){
 app.get("/snowtrip",function(req,res){
 	res.render("pages/snowtrip")
 })
-app.get("/nowifi",function(req,res){
-	res.render("pages/snowtripEasy")
-})
 
 
 // app.get("/irvine",function(req,res){
@@ -129,7 +127,8 @@ app.get("/nowifi",function(req,res){
 //Grocery DB
 //Index Route
 app.get("/irvine",function(req,res){
-	Food.find({'date': {'$gte': new Date('2018, 2, 07'), '$lt': new Date('2018, 2, 13')}},function(err,allItems){
+	
+	Food.find({'date': {'$gte': new Date('2018, 6, 20'), '$lt': new Date('2018, 6, 26')}},function(err,allItems){
 		if(err){
 			
 			console.log(allItems);

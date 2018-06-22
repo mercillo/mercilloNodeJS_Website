@@ -4,6 +4,13 @@
 <html lang="en">
 <head>
     <% include ../partials/head %>
+    <style>
+    .companyLogo{
+       height:100px;
+        width:100px;
+        margin:0 auto;
+    }
+    </style>
 </head>
 <body>
 
@@ -21,11 +28,27 @@
               </script>
     </header>
 
-    <div class="container text-center">
-        <div class="col-xs-12" style="padding-top:25%; padding-bottom:40%;">
-            <h4> Coming Soon</h4>
-        </div>
+    <div class="container text-center" style="padding-top:50px;padding-bottom:50px;">
+        <h5>Full Resume Page Coming Soon</h5>
     </div>
+    <div class="container" id="workExperience">
+        <div class="row">
+            <div class="col-xs-6 col-sm-4 text-center">
+                <img src="/images/FPC_LogoLayer.jpg" class="companyLogo img-responsive" >
+                <h5><a href="http://flashpointcommunications.com/">Flash Point Communications</a></h5>
+                <p>August 2016 - May 2018</p>
+                
+            </div>
+            <div class="col-xs-6 col-sm-4 text-center">
+                <img src="/images/srn.png" class="companyLogo img-responsive" >
+                <h5><a href="https://www.securedretail.com/">Secured Retail Networks</a>  </h5>
+                <p>July 2014 - July 2016</p>
+            </div>
+            <div class="col-xs-4">
+
+            </div>
+        </div>
+    </div>    
     <footer>
         <% include ../partials/footer %>
     </footer>
