@@ -1,0 +1,110 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../../partials/head %>
+</head>
+<body>
+
+    <header>
+        <% include ../../partials/header %>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+          
+            ga('create', 'UA-90533692-1', 'auto');
+            ga('send', 'pageview', '/leetcodeTwosum');
+          
+        </script>     
+        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+         <style>
+                .responsive-video {
+                    position: relative;
+                    padding-bottom: 56.25%;
+                    padding-top: 60px; overflow: hidden;
+                }
+        
+        
+                .responsive-video iframe,
+                .responsive-video object,
+                .responsive-video embed {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }            
+                </style>          
+    </header>
+   
+
+    <div class="questionContainer" style="padding-top:50px; padding-bottom:50px;">
+        <div class="container">
+            <div class="row" style="padding-bottom:30px">
+            <h4 class="text-center" style="padding-bottom:30px" >Linked Lists</h4>
+
+            <p>Array vs Linked List/p>
+            <div class="col-xs-12 col-sm-6">
+                <h4>Array</h4>
+                <ul>
+                    <li> Fixed Size</li>
+                    <li> Inefficient Insertions and deletions</li>
+                    <li> Random access i.e., efficient indexing [can accesss item #5 directly]</li>
+                    <li> May result in much memory waste</li>
+                    <li> Sequential access is faster [Reason: Elements in contiguous memory locations]</li>
+                </ul>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                <h4>Linked List</h4>
+                <ul>
+                    <li> Dynamic Size</li>
+                    <li> Efficient insertions and Deletions</li>
+                    <li> No random access [need to go through the whole list to get to item #5]</li>
+                    <li> No waste of memory</li>
+                    <li> Sequential access is slow [Reason: Elements not in contiguous memory locations]</li>
+                </ul>
+            </div>  
+             </div>
+            <div class="col-xs-12">
+            <ul>
+                <li> Linked list is made up of nodes</li>
+                <li> Each node contains the data and a pointer to the next node.</li>
+                <li> If it is the last node, then it points to null.</li>
+            </ul>
+            </div>         
+            
+        </div>
+    </div>
+
+    <div class="solutionContainer" style="padding-top:50px; padding-bottom:50px;">
+            <div class="container">
+                <div class="row" style="padding-bottom:30px">
+                <h4 class="text-center" style="padding-bottom:30px" >Explanation and Solution</h4>
+
+                <div class="solution">
+                    <p>Solution</p>
+                    <pre class="prettyprint">
+
+                    </pre>
+                </div>
+
+                
+                <div class="explanation">
+
+          
+                </div>
+            </div>
+        </div>
+
+    <div class="container">
+        <p> This information has been gathered from <a href="https://www.youtube.com/watch?v=9YddVVsdG5A">FreeCodecamp</a>. Please watch the video as these notes are for myself and anyone who finds it helpful.</p>
+    </div>
+    <footer>
+        <% include ../../partials/footer %>
+    </footer>
+    
+</body>
+</html>

@@ -104,6 +104,13 @@ header.carousel .fill {
 	margin-bottom:300px;
 }
 
+#workExperience{
+  padding-top:50px;
+}
+
+.workPadding{
+  padding-top:50px;
+}
 .container-fluid{
   padding-top:20px;
   padding-bottom:20px;
@@ -236,3 +243,18 @@ padding:50px;
 }
 
 
+.thumbNailWrapper{
+  max-height: 450px;
+  overflow: scroll;
+}
+
+.thumbNailWrapperResume{
+  max-height:300px;
+}
+.desktopWorkFlow{
+  padding-top:50px;
+}
+.workSummaryContainer{
+  padding-top:50px;
+  padding-bottom:50px;
+}

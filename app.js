@@ -51,8 +51,8 @@ app.get("/mixes", function(req,res){
 	res.render("pages/index");
 });
 
-app.get("/portfolio", function(req,res){
-	res.render("pages/portfolio");
+app.get("/apps", function(req,res){
+	res.render("pages/apps");
 });
 
 app.get("/contact", function(req,res){
@@ -80,6 +80,40 @@ app.get("/cadcsnowtrip",function(req,res){
 
 app.get("/snowtrip",function(req,res){
 	res.render("pages/snowtrip")
+})
+
+app.get("/blog/stacks", function(req,res){
+	res.render("pages/blog/Stacks");
+});
+
+app.get("/cadcsnowtrip",function(req,res){
+	res.render("pages/cadcsnowtrip")
+})
+
+app.get("/snowtrip",function(req,res){
+	res.render("pages/snowtrip")
+})
+
+app.get("/qadev",function(req,res){
+	res.render("pages/qadev")
+})
+
+app.get("/dj",function(req,res){
+	res.render("pages/dj")
+})
+
+//Resume section
+
+app.get("/work/kia", function(req,res){
+	res.render("pages/work/kia/kia");
+});
+
+app.get("/work/denverautoshow",function(req,res){
+	res.render("pages/work/denverautoshow/denverautoshow")
+})
+
+app.get("/work/fordsummersalesevent",function(req,res){
+	res.render("pages/work/fordsummersalesevent/fordsummersalesevent")
 })
 
 
@@ -128,7 +162,7 @@ app.get("/snowtrip",function(req,res){
 //Index Route
 app.get("/irvine",function(req,res){
 	
-	Food.find({'date': {'$gte': new Date('2018, 6, 20'), '$lt': new Date('2018, 6, 26')}},function(err,allItems){
+	Food.find({'date': {'$gte': new Date('2018, 8, 08'), '$lt': new Date('2018, 8, 14')}},function(err,allItems){
 		if(err){
 			
 			console.log(allItems);

@@ -1,0 +1,149 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../../partials/head %>
+</head>
+<body>
+
+    <header>
+        <% include ../../partials/header %>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+          
+            ga('create', 'UA-90533692-1', 'auto');
+            ga('send', 'pageview', '/leetcodeTwosum');
+          
+        </script>     
+        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+         <style>
+                .responsive-video {
+                    position: relative;
+                    padding-bottom: 56.25%;
+                    padding-top: 60px; overflow: hidden;
+                }
+        
+        
+                .responsive-video iframe,
+                .responsive-video object,
+                .responsive-video embed {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }            
+                </style>          
+    </header>
+   
+
+    <div class="questionContainer" style="padding-top:50px; padding-bottom:50px; color:green;">
+        <div class="container">
+            <div class="row" style="padding-bottom:30px">
+            <h4 class="text-center" style="padding-bottom:30px" >LeetCode - Two Sum</h4>
+            <p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+                <br>
+                
+                You may assume that each input would have exactly one solution, and you may not use the same element twice.</p>
+                <br>
+                <br>
+            <div class="example">
+                <p>Problem</p>
+                <pre class="prettyprint">
+                        Given nums = [2, 7, 11, 15], target = 9,
+                        
+                        Because nums[0] + nums[1] = 2 + 7 = 9,
+                        return [0, 1].
+                </pre>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="solutionContainer" style="padding-top:50px; padding-bottom:50px;">
+            <div class="container">
+                <div class="row" style="padding-bottom:30px">
+                <h4 class="text-center" style="padding-bottom:30px" >Explanation and Solution</h4>
+
+                <div class="solution">
+                    <p>Solution #1</p>
+                    <pre class="prettyprint">
+                            var twoSum = function(nums, target) {
+
+                                for(i=0;i<=nums.length-1;i++){
+                                    for(j=i+1;j<=nums.length-1;j++){
+                                        //console.log("i: "+i+ " / nums[i]: " +nums[i]);
+                                        //console.log("j: "+j+ " / nums[j]: " +nums[j]);
+                                        if(nums[i]+nums[j]===target){
+                                            
+                                            var arr = [i,j];
+                                            return arr;
+                                        }
+                                        //console.log(target);
+                                    }
+                                }
+                                
+                            };
+                    </pre>
+                </div>
+                <div class="explanation">
+                        We are looping through each item in the array and determing to see if it hits the target number.<br>
+                        In this example, our target is 9.<br>
+                        Our first loop will determine how many integers are in our array.<br>
+                        We want to start at 0 and end at the end of the
+                         array (nums.length-1) 
+                        <br>
+                        <pre class="prettyprint" style="padding-top:10px;padding-bottom:10px;">
+                                var twoSum = function(nums, target) {
+                                    for(i=0;i<=nums.length-1;i++){
+                                        for(j=i+1;j<=nums.length-1;j++){
+                                            ...code
+                                            }
+                                        }
+                                    }
+                                    
+                                };
+                        </pre>             
+                        <br>           
+                        Our inital number "i" = 0.
+                        
+                        We now want to add another number and determine if it equals the target.<br>
+                        This is where we set our second number, "j", equal to the next digit. [i+1] and we also want this to continue until the "j" is at the end of the array.
+
+                        <br>
+                        <pre class="prettyprint" style="padding-top:10px;padding-bottom:10px;">
+                                Given nums = [2, 7, 11, 15], target = 9,  
+                                Because nums[0] + nums[1] = 2 + 7 = 9,
+                                return [0, 1].
+                        </pre>
+                        <br>
+
+                        We then take "i" and add it to "j" to see if it equals are target number.<br>
+                        <pre class="prettyprint" style="padding-top:10px;padding-bottom:10px;">
+                                i = 2 
+                                j = 7
+                                i+j = 9; target = 9.
+                        </pre>                
+                        <br>        
+                        If it does equal, we want to return the indices on the array.<br>
+                        However, if it does not equal our target number, "j" will shift to the next number and compare add "j" to i. Once "j" reaches the end of its loop, "i" will now shift over to the next digit.
+
+
+                        
+
+
+                    </div>                
+                </div>
+            </div>
+        </div>
+
+    <footer>
+        <% include ../../partials/footer %>
+    </footer>
+    
+</body>
+</html>
